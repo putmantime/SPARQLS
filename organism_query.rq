@@ -1,0 +1,4 @@
+#This is a description
+#of my query. It has multiple
+#lines
+DESCRIBE ?x 
