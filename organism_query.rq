@@ -1,3 +1,6 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
 SELECT ?species ?speciesLabel ?taxid ?RefSeq
         WHERE { 
                 ?species wdt:P171* wd:Q10876;
