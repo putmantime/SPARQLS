@@ -1,5 +1,8 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
 SELECT ?gene ?locusTag ?entrez ?operon ?operonLabel ?genStart ?genEnd ?strand 
 ?strandLabel ?op_genes ?op_genesLabel 
+
 WHERE { 
   ?gene wdt:P351 '895005'; 
         wdt:P361 ?operon. 
