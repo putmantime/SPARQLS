@@ -1,23 +1,32 @@
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+
 SELECT  ?gene ?specieswd ?specieswdLabel ?taxid ?genomeaccession ?geneLabel  
 ?locustag ?entrezid ?genomicstart ?genomicend ?strand ?protein ?proteinLabel 
 ?uniprot ?refseqProtein ?refSeqChromosome 
+
 WHERE { 
-  ?specieswd wdt:P685 "115713". 
-  ?specieswd wdt:P685 ?taxid; 
-  wdt:P2249 ?genomeaccession. 
+  ?specieswd wdt:P685 "115713";
+             wdt:P685 ?taxid;
+             wdt:P2249 ?genomeaccession.
   ?gene wdt:P703 ?specieswd; 
-  wdt:P351 ?entrezid ; 
-  wdt:P644 ?genomicstart; 
-  wdt:P645 ?genomicend; 
-  wdt:P2393 ?locustag; 
-  wdt:P2548 ?strand; 
-  p:P644 ?chr. 
+        wdt:P351 ?entrezid ; 
+        wdt:P644 ?genomicstart; 
+        wdt:P645 ?genomicend;
+        wdt:P2393 ?locustag; 
+        wdt:P2548 ?strand; 
+        p:P644 ?chr. 
   OPTIONAL{
-  ?gene wdt:P688 ?protein. 
-  ?chr pq:P2249 ?refSeqChromosome. 
-  ?protein wdt:P352 ?uniprot; 
-  wdt:P637 ?refseqProtein.
+  
+    ?gene wdt:P688 ?protein. 
+    ?chr pq:P2249 ?refSeqChromosome. 
+    ?protein wdt:P352 ?uniprot; 
+             wdt:P637 ?refseqProtein.
   } 
   SERVICE wikibase:label { 
-  bd:serviceParam wikibase:language "en" . }}
+    bd:serviceParam wikibase:language "en" . 
+  }
+}
 
