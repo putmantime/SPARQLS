@@ -1,0 +1,4 @@
+SELECT ?gene ?locusTag ?entrez ?operon ?operonLabel ?genStart ?genEnd ?strand 
+?strandLabel ?op_genes ?op_genesLabel 
+WHERE { 
+?gene wdt:P351 '895005'; wdt:P361 ?operon. ?operon wdt:P527 ?op_genes. ?op_genes wdt:P2393 ?locusTag; wdt:P351 ?entrez; wdt:P644 ?genStart; wdt:P645 ?genEnd; wdt:P2548 ?strand. SERVICE wikibase:label { bd:serviceParam wikibase:language "en" . }}
